@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     end
 
     def create
-      if params[:name] != nil || params[:name].present? == false
+      if params[:name] != nil || !params.has_key?(:name)
         session[:name] = params[:name]
         redirect_to '/'
       else
